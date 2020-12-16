@@ -13,7 +13,8 @@
 # Basing custom image on Debian Buster image
 FROM debian:buster
 
-# Moving all source files to docker container so we can interact with them when building
+# Moving all source files to docker container so we can interact with them when building the image
+# This includes setup scripts, and configuration files
 COPY srcs/install_packages.sh 	/tmp/
 COPY srcs/server_setup.sh	/tmp/
 COPY srcs/phpmyadmin_setup.sh	/tmp/
@@ -24,7 +25,7 @@ COPY srcs/server.conf		/tmp/
 COPY srcs/wordpress-5.6.tar.gz	/tmp/
 COPY srcs/wp-config.php		/tmp/
 
-# Installing all required packages, including MariaDB
+# Installing all required packages, including SQL database (MariaDB)
 RUN /tmp/install_packages.sh
 
 # Setting up server and copying autoindex script

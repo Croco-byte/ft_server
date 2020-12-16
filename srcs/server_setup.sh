@@ -16,7 +16,6 @@ chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
 
 mkdir -p /var/www/ftserver
-mv /tmp/index.html /var/www/ftserver
 
 mv /tmp/server.conf /etc/nginx/sites-available/ftserver
 ln -s /etc/nginx/sites-available/ftserver /etc/nginx/sites-enabled/ftserver
